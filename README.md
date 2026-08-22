@@ -76,18 +76,6 @@ loader.
 Both `tool` entries are provisioned by DSM itself at install time -
 `postinst` never needs root.
 
-## 🏗️ Architecture
-
-- [`docs/mshell-config-architecture.md`](docs/mshell-config-architecture.md) -
-  where `user_config.json` actually lives on disk, how the loader disk
-  is detected, the full backend action inventory, and several gotchas
-  found the hard way on real hardware (a frontend-bundle file that
-  looks live but isn't, an `nginx.conf` filename requirement, a
-  state-merge bug from moving a tab's cards, and more).
-- [`docs/synology-spk-build-notes.md`](docs/synology-spk-build-notes.md) -
-  general DSM SPK packaging pitfalls (privilege model, INFO fields,
-  builder gotchas).
-
 ## 🙏 Credits
 
 - [`PeterSuh-Q3/tinycore-redpill`](https://github.com/PeterSuh-Q3/tinycore-redpill) -
@@ -176,17 +164,6 @@ DSM 7.0 이상, MSHELL(tinycore-redpill) 로더로 부팅된 환경이 필요합
 
 두 `tool` 항목 모두 설치 시점에 DSM 자신이 부여하므로, `postinst`는
 한 번도 root 권한이 필요하지 않습니다.
-
-## 🏗️ 아키텍처
-
-- [`docs/mshell-config-architecture.md`](docs/mshell-config-architecture.md) —
-  `user_config.json`이 디스크 어디에 실제로 있는지, 로더 디스크를
-  어떻게 탐지하는지, 백엔드 액션 전체 목록, 그리고 실기에서 직접
-  겪으며 알아낸 여러 함정들(겉보기엔 반영되는 것 같지만 실제로는
-  안 쓰이는 프론트엔드 번들 파일, `nginx.conf`의 파일명 요구사항,
-  탭 이동 중 발생한 상태 병합 버그 등)을 정리했습니다.
-- [`docs/synology-spk-build-notes.md`](docs/synology-spk-build-notes.md) —
-  DSM SPK 패키징 전반의 함정(권한 모델, INFO 필드, 빌더 관련 주의사항).
 
 ## 🙏 크레딧
 
