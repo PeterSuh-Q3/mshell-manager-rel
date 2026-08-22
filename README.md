@@ -29,8 +29,6 @@ version** - no manual TinyCore menu work needed for either.
 | 🎞️ **VCRT** | Inspect and (re)link the hardware video transcoding runtime / VCRT requires the installation of Sino Community FFMPEG 8.1 to be activated |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
 | 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
-| ⚡ **CPU Tuning** | Turn CPU cores online/offline, switch the frequency governor and scheduler (`schedutil`/etc.), and toggle turbo boost |
-| 🏎️ **Benchmark** | Run storage (sequential I/O), CPU, and network (`speedtest`) benchmarks from the UI |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
 
 ## 📸 Screenshots
@@ -135,8 +133,6 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 | 🎞️ **VCRT** | 하드웨어 영상 트랜스코딩 런타임 상태 확인 및 재연결 / VCRT 는 시노커뮤니티 FFMPEG 8.1 을 설치해야 활성화 |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
 | 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
-| ⚡ **CPU Tuning** | CPU 코어 온라인/오프라인 전환, 주파수 거버너·스케줄러(`schedutil` 등) 변경, 터보 부스트 토글 |
-| 🏎️ **Benchmark** | 스토리지(순차 I/O), CPU, 네트워크(`speedtest`) 벤치마크를 UI에서 바로 실행 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
 
 ## 📸 스크린샷
