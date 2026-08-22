@@ -27,16 +27,16 @@ into the TinyCore boot menu.
 
 <table>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/01-system-info.png" alt="System Info" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/02-configuration-masked.png" alt="Configuration" width="400"></td>
+<td><img src="docs/01.png" alt="System Info" width="400"></td>
+<td><img src="docs/02.png" alt="Configuration" width="400"></td>
 </tr>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/04-vcrt.png" alt="VCRT" width="400"></td>
+<td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
+<td><img src="docs/04-vcrt.png" alt="VCRT" width="400"></td>
 </tr>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/05-nvidia.png" alt="NVIDIA" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
+<td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
 
@@ -124,16 +124,16 @@ not have any official support from Synology Inc. Use at your own risk.
 
 <table>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/01-system-info.png" alt="System Info" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/02-configuration-masked.png" alt="Configuration" width="400"></td>
+<td><img src="docs/01.png" alt="System Info" width="400"></td>
+<td><img src="docs/02.png" alt="Configuration" width="400"></td>
 </tr>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/04-vcrt.png" alt="VCRT" width="400"></td>
+<td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
+<td><img src="docs/04-vcrt.png" alt="VCRT" width="400"></td>
 </tr>
 <tr>
-<td><img src="captures/mshell-manager-1.0.0/05-nvidia.png" alt="NVIDIA" width="400"></td>
-<td><img src="captures/mshell-manager-1.0.0/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
+<td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
 
