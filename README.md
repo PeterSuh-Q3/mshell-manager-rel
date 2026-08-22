@@ -14,6 +14,10 @@ into the TinyCore boot menu. Beyond a plain reboot into that mode,
 config, reboots straight into a non-interactive build using it, and
 kexecs directly into the result - one unattended reboot, no manual
 TinyCore menu interaction and no second physical reboot on success.
+Since the Configuration tab can also change the Synology model or DSM
+version before saving, Auto Rebuild doubles as a one-click path to
+**migrate to a different model** or **update-build to a newer DSM
+version** - no manual TinyCore menu work needed for either.
 
 ## ✨ Features
 
@@ -116,7 +120,10 @@ TinyCore 부팅 메뉴로 따로 진입할 필요가 없습니다. 단순 재부
 단계 더 나아간 **Auto Rebuild**는, 이미 저장된 설정을 검증한 뒤 곧바로
 비대화형(non-interactive) 빌드로 재부팅해서 그 결과로 바로 kexec까지
 이어집니다 — 재부팅 한 번으로 TinyCore 메뉴 조작이나 두 번째 물리
-재부팅 없이 자동으로 재빌드가 끝납니다.
+재부팅 없이 자동으로 재빌드가 끝납니다. Configuration 탭에서 저장 전에
+Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
+**다른 모델로의 마이그레이션**이나 **최신 DSM 버전으로의 업데이트
+빌드**도 TinyCore 메뉴 조작 없이 원클릭으로 처리하는 경로가 됩니다.
 
 ## ✨ 기능
 
