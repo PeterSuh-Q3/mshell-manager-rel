@@ -7,20 +7,26 @@
 [![issues - mshell-manager](https://img.shields.io/github/issues/PeterSuh-Q3/mshell-manager)](https://github.com/PeterSuh-Q3/mshell-manager/issues)
 
 A DSM package to configure the [MSHELL](https://github.com/PeterSuh-Q3/tinycore-redpill)
-(`alpine-redpill` branch) loader, monitor hardware, and reboot into a
-different loader mode - all from inside DSM, without ever dropping
-into the TinyCore boot menu.
+(`alpine-redpill` branch) loader, monitor hardware, and reboot into
+MSHELL loader-build mode - all from inside DSM, without ever dropping
+into the TinyCore boot menu. Beyond a plain reboot into that mode,
+**Auto Rebuild** goes a step further: it validates the already-saved
+config, reboots straight into a non-interactive build using it, and
+kexecs directly into the result - one unattended reboot, no manual
+TinyCore menu interaction and no second physical reboot on success.
 
 ## ✨ Features
 
 | Tab | What it does |
 |---|---|
 | 🧭 **System Info** | DSM/loader/package version cards, live CPU clock/temperature, disk (Storage Controllers) temp + SMART health, network interface status |
-| 🔩 **Configuration** | Edit loader settings (serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk; reboot into Rebuild Mode or DSM Reinstall |
+| 🔩 **Configuration** | Edit loader settings (Synology model, DSM version, serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk, with a one-click Serial Number generator; reboot into **Auto Rebuild** (non-interactive, no second reboot on success), manual Rebuild Mode, or DSM Reinstall |
 | 🗄️ **Storage Panel** | Change the disk-bay layout DSM's own Storage Manager displays - **applies live**, no loader rebuild needed |
 | 🎞️ **VCRT** | Inspect and (re)link the hardware video transcoding runtime / VCRT requires the installation of Sino Community FFMPEG 8.1 to be activated |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
-| 🕹️ **AMD GPU** | Live AMD GPU status and console output |
+| 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
+| ⚡ **CPU Tuning** | Turn CPU cores online/offline, switch the frequency governor and scheduler (`schedutil`/etc.), and toggle turbo boost |
+| 🏎️ **Benchmark** | Run storage (sequential I/O), CPU, and network (`speedtest`) benchmarks from the UI |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
 
 ## 📸 Screenshots
@@ -105,19 +111,25 @@ not have any official support from Synology Inc. Use at your own risk.
 
 [MSHELL](https://github.com/PeterSuh-Q3/tinycore-redpill)(`alpine-redpill`
 브랜치) 로더를 DSM 안에서 바로 설정하고, 하드웨어 상태를 모니터링하고,
-다른 로더 모드로 재부팅할 수 있게 해주는 DSM 패키지입니다. TinyCore
-부팅 메뉴로 따로 진입할 필요가 없습니다.
+**MSHELL 로더빌드 모드**로 재부팅할 수 있게 해주는 DSM 패키지입니다.
+TinyCore 부팅 메뉴로 따로 진입할 필요가 없습니다. 단순 재부팅보다 한
+단계 더 나아간 **Auto Rebuild**는, 이미 저장된 설정을 검증한 뒤 곧바로
+비대화형(non-interactive) 빌드로 재부팅해서 그 결과로 바로 kexec까지
+이어집니다 — 재부팅 한 번으로 TinyCore 메뉴 조작이나 두 번째 물리
+재부팅 없이 자동으로 재빌드가 끝납니다.
 
 ## ✨ 기능
 
 | 탭 | 설명 |
 |---|---|
 | 🧭 **System Info** | DSM/로더/패키지 버전 카드, 실시간 CPU 클럭/온도, 디스크(Storage Controllers) 온도·SMART 상태, 네트워크 인터페이스 상태 |
-| 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집, Rebuild Mode·DSM Reinstall로 재부팅 |
+| 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(Synology 모델, DSM 버전, 시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집 및 원클릭 시리얼 넘버 생성, **Auto Rebuild**(비대화형, 성공 시 두 번째 재부팅 불필요)·Rebuild Mode·DSM Reinstall로 재부팅 |
 | 🗄️ **Storage Panel** | DSM 자체 Storage Manager가 표시하는 디스크 베이 레이아웃 변경 - **즉시 반영**, 로더 재빌드 불필요 |
 | 🎞️ **VCRT** | 하드웨어 영상 트랜스코딩 런타임 상태 확인 및 재연결 / VCRT 는 시노커뮤니티 FFMPEG 8.1 을 설치해야 활성화 |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
-| 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력 |
+| 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
+| ⚡ **CPU Tuning** | CPU 코어 온라인/오프라인 전환, 주파수 거버너·스케줄러(`schedutil` 등) 변경, 터보 부스트 토글 |
+| 🏎️ **Benchmark** | 스토리지(순차 I/O), CPU, 네트워크(`speedtest`) 벤치마크를 UI에서 바로 실행 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
 
 ## 📸 스크린샷
