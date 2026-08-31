@@ -2,9 +2,11 @@
 
 # MSHELL Manager
 
-[![GitHub release](https://img.shields.io/github/release/PeterSuh-Q3/mshell-manager?include_prereleases=&sort=semver&color=blue)](https://github.com/PeterSuh-Q3/mshell-manager/releases/)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/PeterSuhQ3)
+
+[![GitHub release](https://img.shields.io/github/release/PeterSuh-Q3/mshell-manager-rel?include_prereleases=&sort=semver&color=blue)](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
-[![issues - mshell-manager](https://img.shields.io/github/issues/PeterSuh-Q3/mshell-manager)](https://github.com/PeterSuh-Q3/mshell-manager/issues)
+[![issues - mshell-manager-rel](https://img.shields.io/github/issues/PeterSuh-Q3/mshell-manager-rel)](https://github.com/PeterSuh-Q3/mshell-manager-rel/issues)
 
 A DSM package to configure the [MSHELL](https://github.com/PeterSuh-Q3/tinycore-redpill)
 (`alpine-redpill` branch) loader, monitor hardware, and reboot into
@@ -50,7 +52,7 @@ version** - no manual TinyCore menu work needed for either.
 
 ## 📦 Installation
 
-Download the latest `.spk` from the [Releases page](https://github.com/PeterSuh-Q3/mshell-manager/releases)
+Download the latest `.spk` from the [Releases page](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases)
 and install it manually via **Package Center → Manual Install**.
 
 Requires DSM 7.0 or later, booted via the MSHELL (tinycore-redpill)
@@ -142,7 +144,7 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 
 ## 📦 설치
 
-[릴리즈 페이지](https://github.com/PeterSuh-Q3/mshell-manager/releases)에서
+[릴리즈 페이지](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases)에서
 최신 `.spk`를 받아 **패키지 센터 → 수동 설치**로 설치하세요.
 
 DSM 7.0 이상, MSHELL(tinycore-redpill) 로더로 부팅된 환경이 필요합니다.
