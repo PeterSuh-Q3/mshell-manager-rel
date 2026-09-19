@@ -80,6 +80,14 @@ Both `tool` entries are provisioned by DSM itself at install time -
 
 ## 🙏 Credits
 
+- **MSHELL Manager Developer / Maintainer:** PeterSuh-Q3 / MSHELL.
+- **UI Design Credits:** Portions of the MSHELL Manager user interface are
+  based in part on the original Arc Control interface design.
+  **Original UI Designer / Creator:**
+  [FulcrumCode](https://github.com/FulcrumCode).
+  **Arc Project:** [AuxXxilium / Arc](https://github.com/AuxXxilium/arc).
+  This attribution acknowledges the original design work and does not imply
+  endorsement of MSHELL Manager by FulcrumCode or the Arc Project.
 - [`PeterSuh-Q3/tinycore-redpill`](https://github.com/PeterSuh-Q3/tinycore-redpill) -
   the MSHELL loader this package configures.
 - Storage Panel's live-patch logic is ported from
@@ -169,6 +177,14 @@ DSM 7.0 이상, MSHELL(tinycore-redpill) 로더로 부팅된 환경이 필요합
 
 ## 🙏 크레딧
 
+- **MSHELL Manager 개발·유지보수:** PeterSuh-Q3 / MSHELL.
+- **UI 디자인 크레딧:** MSHELL Manager 사용자 인터페이스 일부는 Arc Control의
+  원본 인터페이스 디자인에 기반합니다.
+  **원본 UI 디자이너 / 제작자:**
+  [FulcrumCode](https://github.com/FulcrumCode).
+  **Arc 프로젝트:** [AuxXxilium / Arc](https://github.com/AuxXxilium/arc).
+  이 표기는 원본 디자인 작업을 인정하기 위한 것이며, FulcrumCode 또는 Arc
+  프로젝트가 MSHELL Manager를 보증하거나 공식 지원한다는 의미는 아닙니다.
 - [`PeterSuh-Q3/tinycore-redpill`](https://github.com/PeterSuh-Q3/tinycore-redpill) —
   이 패키지가 설정하는 MSHELL 로더 본체.
 - Storage Panel의 즉시 반영 로직은 [Change Panel Size](https://github.com/wjz304)의
