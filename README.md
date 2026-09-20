@@ -31,6 +31,7 @@ version** - no manual TinyCore menu work needed for either.
 | 🎞️ **FFmpeg** | Inspect FFmpeg 8 and manage its optional `/usr/bin/ffmpeg` system link. Requires SinoCommunity FFmpeg 8.1. |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
 | 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
+| 🔵 **Intel GPU** | Live Intel iGPU DRM telemetry, with an optional `intel_gpu_top` console |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
 
 ## 📸 Screenshots
@@ -131,6 +132,7 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 | 🎞️ **FFmpeg** | FFmpeg 8 상태 확인 및 선택적 `/usr/bin/ffmpeg` 시스템 링크 관리 / 시노커뮤니티 FFmpeg 8.1 설치가 필요합니다. |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
 | 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
+| 🔵 **Intel GPU** | 실시간 Intel iGPU DRM 텔레메트리 및 선택적 `intel_gpu_top` 콘솔 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
 
 ## 📸 스크린샷
