@@ -28,7 +28,7 @@ version** - no manual TinyCore menu work needed for either.
 | 🧭 **System Info** | DSM/loader/package version cards, live CPU clock/temperature, disk (Storage Controllers) temp + SMART health, network interface status |
 | 🔩 **Configuration** | Edit loader settings (Synology model, DSM version, serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk, with a one-click Serial Number generator; reboot into **Auto Rebuild** (non-interactive, no second reboot on success), manual Rebuild Mode, or DSM Reinstall |
 | 🗄️ **Storage Panel** | Change the disk-bay layout DSM's own Storage Manager displays - **applies live**, no loader rebuild needed |
-| 🎞️ **VCRT** | Inspect and (re)link the hardware video transcoding runtime / VCRT requires the installation of Sino Community FFMPEG 8.1 to be activated |
+| 🎞️ **FFmpeg** | Inspect FFmpeg 8 and manage its optional `/usr/bin/ffmpeg` system link. Requires SinoCommunity FFmpeg 8.1. |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
 | 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
@@ -42,7 +42,7 @@ version** - no manual TinyCore menu work needed for either.
 </tr>
 <tr>
 <td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="docs/04-vcrt.png" alt="VCRT" width="400"></td>
+<td><img src="docs/04-vcrt.png" alt="FFmpeg" width="400"></td>
 </tr>
 <tr>
 <td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
@@ -128,7 +128,7 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 | 🧭 **System Info** | DSM/로더/패키지 버전 카드, 실시간 CPU 클럭/온도, 디스크(Storage Controllers) 온도·SMART 상태, 네트워크 인터페이스 상태 |
 | 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(Synology 모델, DSM 버전, 시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집 및 원클릭 시리얼 넘버 생성, **Auto Rebuild**(비대화형, 성공 시 두 번째 재부팅 불필요)·Rebuild Mode·DSM Reinstall로 재부팅 |
 | 🗄️ **Storage Panel** | DSM 자체 Storage Manager가 표시하는 디스크 베이 레이아웃 변경 - **즉시 반영**, 로더 재빌드 불필요 |
-| 🎞️ **VCRT** | 하드웨어 영상 트랜스코딩 런타임 상태 확인 및 재연결 / VCRT 는 시노커뮤니티 FFMPEG 8.1 을 설치해야 활성화 |
+| 🎞️ **FFmpeg** | FFmpeg 8 상태 확인 및 선택적 `/usr/bin/ffmpeg` 시스템 링크 관리 / 시노커뮤니티 FFmpeg 8.1 설치가 필요합니다. |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
 | 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
@@ -142,7 +142,7 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 </tr>
 <tr>
 <td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="docs/04-vcrt.png" alt="VCRT" width="400"></td>
+<td><img src="docs/04-vcrt.png" alt="FFmpeg" width="400"></td>
 </tr>
 <tr>
 <td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
