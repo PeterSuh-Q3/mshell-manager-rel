@@ -47,6 +47,10 @@ version** - no manual TinyCore menu work needed for either.
 </tr>
 <tr>
 <td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="docs/07-amd-gpu-console.png" alt="AMD GPU" width="400"></td>
+</tr>
+<tr>
+<td><img src="docs/07-intel-GPU.png" alt="Intel GPU" width="400"></td>
 <td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
@@ -148,6 +152,10 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 </tr>
 <tr>
 <td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="docs/07-amd-gpu-console.png" alt="AMD GPU" width="400"></td>
+</tr>
+<tr>
+<td><img src="docs/07-intel-GPU.png" alt="Intel GPU" width="400"></td>
 <td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
