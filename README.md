@@ -31,12 +31,26 @@ version** - no manual TinyCore menu work needed for either.
 |---|---|
 | 🧭 **System Info** | DSM/loader/package version cards, live CPU clock/temperature, disk (Storage Controllers) temp + SMART health, network interface status |
 | 🔩 **Configuration** | Edit loader settings (Synology model, DSM version, serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk, with a one-click Serial Number generator; reboot into **Auto Rebuild** (non-interactive, no second reboot on success), manual Rebuild Mode, or DSM Reinstall |
+| 🐳 **Docker Rebuilder** | Build an Alpine Redpill loader in an isolated Docker environment, then review and explicitly apply the generated loader files |
 | 🗄️ **Storage Panel** | Change the disk-bay layout DSM's own Storage Manager displays - **applies live**, no loader rebuild needed |
 | 🎞️ **FFmpeg** | Inspect FFmpeg 8 and manage its optional `/usr/bin/ffmpeg` system link. Requires SinoCommunity FFmpeg 8.1. |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
 | 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
 | 🔵 **Intel GPU** | Live Intel iGPU DRM telemetry, with an optional `intel_gpu_top` console |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
+
+### Docker Rebuilder
+
+With **Container Manager** available on the NAS, Docker Rebuilder provides a
+guided, isolated Docker userspace for building an **Alpine Redpill** loader.
+The container shares the NAS's Linux kernel; it is not a virtual machine or a
+separate boot environment. Open its terminal to use the loader's existing build
+menu. After the build, MSHELL Manager checks the generated package and lets you
+review it before explicitly applying the selected P1–P3 loader files. Applying
+does not automatically reboot the NAS, and the package does not replace the
+loader's P4 persistence archive. This feature is intended for Alpine Redpill
+loader builds, not as a general-purpose Docker terminal or container-management
+interface.
 
 ## 📸 Screenshots
 
@@ -136,12 +150,25 @@ Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
 |---|---|
 | 🧭 **System Info** | DSM/로더/패키지 버전 카드, 실시간 CPU 클럭/온도, 디스크(Storage Controllers) 온도·SMART 상태, 네트워크 인터페이스 상태 |
 | 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(Synology 모델, DSM 버전, 시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집 및 원클릭 시리얼 넘버 생성, **Auto Rebuild**(비대화형, 성공 시 두 번째 재부팅 불필요)·Rebuild Mode·DSM Reinstall로 재부팅 |
+| 🐳 **Docker Rebuilder** | 격리된 Docker 환경에서 Alpine Redpill 로더를 빌드하고, 생성된 로더 파일을 확인한 뒤 명시적으로 적용 |
 | 🗄️ **Storage Panel** | DSM 자체 Storage Manager가 표시하는 디스크 베이 레이아웃 변경 - **즉시 반영**, 로더 재빌드 불필요 |
 | 🎞️ **FFmpeg** | FFmpeg 8 상태 확인 및 선택적 `/usr/bin/ffmpeg` 시스템 링크 관리 / 시노커뮤니티 FFmpeg 8.1 설치가 필요합니다. |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
 | 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
 | 🔵 **Intel GPU** | 실시간 Intel iGPU DRM 텔레메트리 및 선택적 `intel_gpu_top` 콘솔 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
+
+### Docker Rebuilder
+
+NAS에서 **Container Manager**를 사용할 수 있으면 Docker Rebuilder가 격리된
+Docker 사용자 공간을 구성해 **Alpine Redpill** 로더를 빌드합니다. 컨테이너는
+NAS의 Linux 커널을 공유하며, 별도의 가상 머신이나 부팅 환경은 아닙니다.
+터미널에서 로더에 포함된 기존 빌드 메뉴를 사용하고, 빌드가 끝나면 MSHELL
+Manager가 생성된 패키지를 확인합니다. 적용 전에 파일을 검토할 수 있으며,
+선택된 P1–P3 로더 파일은 사용자가 명시적으로 적용해야 합니다. 적용 시 NAS는
+자동 재부팅되지 않고, 로더 P4 영속화 압축파일도 교체하지 않습니다. 이 기능은
+범용 Docker 터미널이나 컨테이너 관리 기능이 아니라 Alpine Redpill 로더
+빌드용으로 제공됩니다.
 
 ## 📸 스크린샷
 
