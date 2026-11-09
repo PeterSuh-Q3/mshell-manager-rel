@@ -1,81 +1,59 @@
 <!-- @format -->
 
-> **DSM Package Center source:** Add [https://nas.dante90.mmv.kr/](https://nas.dante90.mmv.kr/) in **Package Center → Settings → Package Sources** to browse compatible PeterSuh-Q3 packages.
-
-[![English DSM Package Center Community catalog showing PeterSuh-Q3 packages](docs/package-center-community-en.png)](https://nas.dante90.mmv.kr/)
-
 # MSHELL Manager
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/PeterSuhQ3)
 
-[![GitHub release](https://img.shields.io/github/release/PeterSuh-Q3/mshell-manager-rel?include_prereleases=&sort=semver&color=blue)](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases/)
+[![GitHub release](https://img.shields.io/github/release/PeterSuh-Q3/mshell-manager?include_prereleases=&sort=semver&color=blue)](https://github.com/PeterSuh-Q3/mshell-manager/releases/)
 [![License](https://img.shields.io/badge/License-MIT-blue)](#license)
-[![issues - mshell-manager-rel](https://img.shields.io/github/issues/PeterSuh-Q3/mshell-manager-rel)](https://github.com/PeterSuh-Q3/mshell-manager-rel/issues)
+[![issues - mshell-manager](https://img.shields.io/github/issues/PeterSuh-Q3/mshell-manager)](https://github.com/PeterSuh-Q3/mshell-manager/issues)
 
 A DSM package to configure the [MSHELL](https://github.com/PeterSuh-Q3/tinycore-redpill)
-(`alpine-redpill` branch) loader, monitor hardware, and reboot into
-MSHELL loader-build mode - all from inside DSM, without ever dropping
-into the TinyCore boot menu. Beyond a plain reboot into that mode,
-**Auto Rebuild** goes a step further: it validates the already-saved
-config, reboots straight into a non-interactive build using it, and
-kexecs directly into the result - one unattended reboot, no manual
-TinyCore menu interaction and no second physical reboot on success.
-Since the Configuration tab can also change the Synology model or DSM
-version before saving, Auto Rebuild doubles as a one-click path to
-**migrate to a different model** or **update-build to a newer DSM
-version** - no manual TinyCore menu work needed for either.
+(`alpine-redpill` branch) loader, monitor hardware, and reboot into a
+different loader mode - all from inside DSM, without ever dropping
+into the TinyCore boot menu.
 
 ## ✨ Features
 
 | Tab | What it does |
 |---|---|
 | 🧭 **System Info** | DSM/loader/package version cards, live CPU clock/temperature, disk (Storage Controllers) temp + SMART health, network interface status |
-| 🔩 **Configuration** | Edit loader settings (Synology model, DSM version, serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk, with a one-click Serial Number generator; reboot into **Auto Rebuild** (non-interactive, no second reboot on success), manual Rebuild Mode, or DSM Reinstall |
-| 🐳 **Docker Rebuilder** | Build an Alpine Redpill loader in an isolated Docker environment, then review and explicitly apply the generated loader files |
+| 🔩 **Configuration** | Edit loader settings (serial number, MAC addresses, kernel/network parameters) that live in `user_config.json` on the loader disk; reboot into Rebuild Mode or DSM Reinstall |
 | 🗄️ **Storage Panel** | Change the disk-bay layout DSM's own Storage Manager displays - **applies live**, no loader rebuild needed |
 | 🎞️ **FFmpeg** | Inspect FFmpeg 8 and manage its optional `/usr/bin/ffmpeg` system link. Requires SinoCommunity FFmpeg 8.1. |
 | 🎮 **NVIDIA** | Live NVIDIA GPU status via `nvidia-smi` |
-| 🕹️ **AMD GPU** | Live AMD GPU status and console output, with GPU/PCI names resolved via a bundled `pci.ids` database |
+| 🕹️ **AMD GPU** | Live AMD GPU status and console output |
 | 🔵 **Intel GPU** | Live Intel iGPU DRM telemetry, with an optional `intel_gpu_top` console |
 | 🔍 **Terminal & dmesg** | Kernel log viewer and an in-browser terminal (via `ttyd`) |
 
-### Docker Rebuilder
+### Docker Rebuilder networking
 
-With **Container Manager** available on the NAS, Docker Rebuilder provides a
-guided, isolated Docker userspace for building an **Alpine Redpill** loader.
-The container shares the NAS's Linux kernel; it is not a virtual machine or a
-separate boot environment. Open its terminal to use the loader's existing build
-menu. After the build, MSHELL Manager checks the generated package and lets you
-review it before explicitly applying the selected P1–P3 loader files. Applying
-does not automatically reboot the NAS, and the package does not replace the
-loader's P4 persistence archive. This feature is intended for Alpine Redpill
-loader builds, not as a general-purpose Docker terminal or container-management
-interface.
+If DSM Firewall ends with a deny rule, container DNS and Internet access can fail even when the NAS itself can reach GitHub. Check the builder's actual Docker bridge subnet and allow the necessary traffic above the deny rule according to your security policy; it is not always `172.17.0.0/16`.
 
 ## 📸 Screenshots
 
 <table>
 <tr>
-<td><img src="docs/01.png" alt="System Info" width="400"></td>
-<td><img src="docs/02.png" alt="Configuration" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/01-system-info.png" alt="System Info" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/02-configuration-masked.png" alt="Configuration" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="docs/04-vcrt.png" alt="FFmpeg" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/03-storage-panel.png" alt="Storage Panel" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/04-vcrt.png" alt="FFmpeg" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
-<td><img src="docs/07-amd-gpu-console.png" alt="AMD GPU" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/07-amd-gpu.png" alt="AMD GPU" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/07-intel-GPU.png" alt="Intel GPU" width="400"></td>
-<td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/08-intel-gpu.png" alt="Intel GPU" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
 
 ## 📦 Installation
 
-Download the latest `.spk` from the [Releases page](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases)
+Download the latest `.spk` from the [Releases page](https://github.com/PeterSuh-Q3/mshell-manager/releases)
 and install it manually via **Package Center → Manual Install**.
 
 Requires DSM 7.0 or later, booted via the MSHELL (tinycore-redpill)
@@ -100,6 +78,18 @@ loader.
 
 Both `tool` entries are provisioned by DSM itself at install time -
 `postinst` never needs root.
+
+## 🏗️ Architecture
+
+- [`docs/mshell-config-architecture.md`](docs/mshell-config-architecture.md) -
+  where `user_config.json` actually lives on disk, how the loader disk
+  is detected, the full backend action inventory, and several gotchas
+  found the hard way on real hardware (a frontend-bundle file that
+  looks live but isn't, an `nginx.conf` filename requirement, a
+  state-merge bug from moving a tab's cards, and more).
+- [`docs/synology-spk-build-notes.md`](docs/synology-spk-build-notes.md) -
+  general DSM SPK packaging pitfalls (privilege model, INFO fields,
+  builder gotchas).
 
 ## 🙏 Credits
 
@@ -134,66 +124,46 @@ not have any official support from Synology Inc. Use at your own risk.
 
 [MSHELL](https://github.com/PeterSuh-Q3/tinycore-redpill)(`alpine-redpill`
 브랜치) 로더를 DSM 안에서 바로 설정하고, 하드웨어 상태를 모니터링하고,
-**MSHELL 로더빌드 모드**로 재부팅할 수 있게 해주는 DSM 패키지입니다.
-TinyCore 부팅 메뉴로 따로 진입할 필요가 없습니다. 단순 재부팅보다 한
-단계 더 나아간 **Auto Rebuild**는, 이미 저장된 설정을 검증한 뒤 곧바로
-비대화형(non-interactive) 빌드로 재부팅해서 그 결과로 바로 kexec까지
-이어집니다 — 재부팅 한 번으로 TinyCore 메뉴 조작이나 두 번째 물리
-재부팅 없이 자동으로 재빌드가 끝납니다. Configuration 탭에서 저장 전에
-Synology 모델이나 DSM 버전을 바꿀 수도 있으므로, Auto Rebuild는
-**다른 모델로의 마이그레이션**이나 **최신 DSM 버전으로의 업데이트
-빌드**도 TinyCore 메뉴 조작 없이 원클릭으로 처리하는 경로가 됩니다.
+다른 로더 모드로 재부팅할 수 있게 해주는 DSM 패키지입니다. TinyCore
+부팅 메뉴로 따로 진입할 필요가 없습니다.
 
 ## ✨ 기능
 
 | 탭 | 설명 |
 |---|---|
 | 🧭 **System Info** | DSM/로더/패키지 버전 카드, 실시간 CPU 클럭/온도, 디스크(Storage Controllers) 온도·SMART 상태, 네트워크 인터페이스 상태 |
-| 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(Synology 모델, DSM 버전, 시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집 및 원클릭 시리얼 넘버 생성, **Auto Rebuild**(비대화형, 성공 시 두 번째 재부팅 불필요)·Rebuild Mode·DSM Reinstall로 재부팅 |
-| 🐳 **Docker Rebuilder** | 격리된 Docker 환경에서 Alpine Redpill 로더를 빌드하고, 생성된 로더 파일을 확인한 뒤 명시적으로 적용 |
+| 🔩 **Configuration** | 로더 디스크의 `user_config.json`에 저장되는 로더 설정(시리얼 번호, MAC 주소, 커널/네트워크 파라미터) 편집, Rebuild Mode·DSM Reinstall로 재부팅 |
 | 🗄️ **Storage Panel** | DSM 자체 Storage Manager가 표시하는 디스크 베이 레이아웃 변경 - **즉시 반영**, 로더 재빌드 불필요 |
 | 🎞️ **FFmpeg** | FFmpeg 8 상태 확인 및 선택적 `/usr/bin/ffmpeg` 시스템 링크 관리 / 시노커뮤니티 FFmpeg 8.1 설치가 필요합니다. |
 | 🎮 **NVIDIA** | `nvidia-smi` 기반 실시간 NVIDIA GPU 상태 |
-| 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력, 번들된 `pci.ids` 데이터베이스로 GPU/PCI 이름 해석 |
+| 🕹️ **AMD GPU** | 실시간 AMD GPU 상태 및 콘솔 출력 |
 | 🔵 **Intel GPU** | 실시간 Intel iGPU DRM 텔레메트리 및 선택적 `intel_gpu_top` 콘솔 |
 | 🔍 **Terminal & dmesg** | 커널 로그 뷰어 및 브라우저 내 터미널(`ttyd`) |
-
-### Docker Rebuilder
-
-NAS에서 **Container Manager**를 사용할 수 있으면 Docker Rebuilder가 격리된
-Docker 사용자 공간을 구성해 **Alpine Redpill** 로더를 빌드합니다. 컨테이너는
-NAS의 Linux 커널을 공유하며, 별도의 가상 머신이나 부팅 환경은 아닙니다.
-터미널에서 로더에 포함된 기존 빌드 메뉴를 사용하고, 빌드가 끝나면 MSHELL
-Manager가 생성된 패키지를 확인합니다. 적용 전에 파일을 검토할 수 있으며,
-선택된 P1–P3 로더 파일은 사용자가 명시적으로 적용해야 합니다. 적용 시 NAS는
-자동 재부팅되지 않고, 로더 P4 영속화 압축파일도 교체하지 않습니다. 이 기능은
-범용 Docker 터미널이나 컨테이너 관리 기능이 아니라 Alpine Redpill 로더
-빌드용으로 제공됩니다.
 
 ## 📸 스크린샷
 
 <table>
 <tr>
-<td><img src="docs/01.png" alt="System Info" width="400"></td>
-<td><img src="docs/02.png" alt="Configuration" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/01-system-info.png" alt="System Info" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/02-configuration-masked.png" alt="Configuration" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/03-storage-panel.png" alt="Storage Panel" width="400"></td>
-<td><img src="docs/04-vcrt.png" alt="FFmpeg" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/03-storage-panel.png" alt="Storage Panel" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/04-vcrt.png" alt="FFmpeg" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/05-nvidia.png" alt="NVIDIA" width="400"></td>
-<td><img src="docs/07-amd-gpu-console.png" alt="AMD GPU" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/05-nvidia.png" alt="NVIDIA" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/07-amd-gpu.png" alt="AMD GPU" width="400"></td>
 </tr>
 <tr>
-<td><img src="docs/07-intel-GPU.png" alt="Intel GPU" width="400"></td>
-<td><img src="docs/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/08-intel-gpu.png" alt="Intel GPU" width="400"></td>
+<td><img src="captures/mshell-manager-1.0.0/06-terminal-dmesg.png" alt="Terminal & dmesg" width="400"></td>
 </tr>
 </table>
 
 ## 📦 설치
 
-[릴리즈 페이지](https://github.com/PeterSuh-Q3/mshell-manager-rel/releases)에서
+[릴리즈 페이지](https://github.com/PeterSuh-Q3/mshell-manager/releases)에서
 최신 `.spk`를 받아 **패키지 센터 → 수동 설치**로 설치하세요.
 
 DSM 7.0 이상, MSHELL(tinycore-redpill) 로더로 부팅된 환경이 필요합니다.
@@ -215,6 +185,17 @@ DSM 7.0 이상, MSHELL(tinycore-redpill) 로더로 부팅된 환경이 필요합
 
 두 `tool` 항목 모두 설치 시점에 DSM 자신이 부여하므로, `postinst`는
 한 번도 root 권한이 필요하지 않습니다.
+
+## 🏗️ 아키텍처
+
+- [`docs/mshell-config-architecture.md`](docs/mshell-config-architecture.md) —
+  `user_config.json`이 디스크 어디에 실제로 있는지, 로더 디스크를
+  어떻게 탐지하는지, 백엔드 액션 전체 목록, 그리고 실기에서 직접
+  겪으며 알아낸 여러 함정들(겉보기엔 반영되는 것 같지만 실제로는
+  안 쓰이는 프론트엔드 번들 파일, `nginx.conf`의 파일명 요구사항,
+  탭 이동 중 발생한 상태 병합 버그 등)을 정리했습니다.
+- [`docs/synology-spk-build-notes.md`](docs/synology-spk-build-notes.md) —
+  DSM SPK 패키징 전반의 함정(권한 모델, INFO 필드, 빌더 관련 주의사항).
 
 ## 🙏 크레딧
 
